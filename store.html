@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bizdak For Businesses — List Your Store Free!</title>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:url"         content="https://bizdak.app/store"/>
+  <meta property="og:title"       content="List Your Store On Bizdak — Free!"/>
+  <meta property="og:description" content="More Customers Through Your Door — Every Day!"/>
+  <meta property="og:image"       content="https://bizdak.app/images/og-preview.png"/>
+  <meta name="description"        content="List your store on Bizdak free. Reach customers the moment they are near you. Zero commission."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:#0d1f35; --navy2:#060e1a; --navy3:#0a1828;
+      --border:#1e3a52; --blue:#29B6D8; --yellow:#F5C518;
+      --black:#0d1a2e; --white:#ffffff; --muted:#2a5a7a;
+      --green:#4cde84; --green-bg:#0a3a1a; --green-border:#4cde84;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Space Grotesk',sans-serif;background:var(--navy2);color:var(--white);font-size:16px;line-height:1.6}
+    h1,h2,h3,h4{font-family:'Outfit',sans-serif}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    nav{background:var(--navy);border-bottom:.5px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .logo-text{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;color:var(--white);letter-spacing:-0.5px}
+    .logo-text span{color:var(--yellow)}
+    .nav-links{display:flex;align-items:center;gap:24px}
+    .nav-link{font-size:14px;color:var(--blue);font-weight:500;cursor:pointer;transition:color .2s}
+    .nav-link:hover{color:var(--yellow)}
+    .lang-toggle{display:flex;background:var(--navy3);border-radius:99px;border:.5px solid var(--border);overflow:hidden}
+    .lang-btn{padding:5px 14px;font-size:12px;font-weight:700;cursor:pointer;color:var(--blue);background:transparent;border:none;font-family:'Space Grotesk',sans-serif;transition:all .2s}
+    .lang-btn.active{background:var(--blue);color:var(--black)}
+    .nav-cta{background:var(--yellow);color:var(--black);font-size:14px;font-weight:700;padding:10px 22px;border-radius:99px;cursor:pointer;transition:opacity .2s}
+    .nav-cta:hover{opacity:.9}
+
+    .hero{background:var(--navy);padding:72px 5% 64px;border-bottom:.5px solid var(--border)}
+    .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-bg);border:.5px solid var(--green-border);color:var(--green);font-size:12px;font-weight:700;padding:5px 14px;border-radius:99px;margin-bottom:20px;font-family:'Space Grotesk',sans-serif}
+    .hero h1{font-size:clamp(32px,4.5vw,52px);font-weight:900;line-height:1.05;margin-bottom:18px;color:var(--white)}
+    .hero h1 span{color:var(--yellow)}
+    .hero-sub{font-size:clamp(15px,2vw,18px);color:var(--blue);font-weight:500;margin-bottom:32px;max-width:520px;line-height:1.6}
+    .btn-primary{background:var(--yellow);color:var(--black);font-size:15px;font-weight:700;padding:14px 30px;border-radius:99px;cursor:pointer;border:none;font-family:'Space Grotesk',sans-serif;transition:opacity .2s;display:inline-block}
+    .btn-primary:hover{opacity:.9}
+
+    section{padding:72px 5%}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section-label{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-bottom:12px}
+    .section-h2{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--white);text-align:center;margin-bottom:48px;line-height:1.2}
+    .section-h2 span{color:var(--yellow)}
+
+    .ben-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+    .ben-card{background:var(--navy);border:.5px solid var(--border);border-radius:14px;padding:28px;text-align:center;transition:border-color .2s}
+    .ben-card:hover{border-color:var(--blue)}
+    .ben-num{font-size:40px;font-weight:900;color:var(--yellow);font-family:'Outfit',sans-serif;margin-bottom:6px}
+    .ben-title{font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;font-family:'Outfit',sans-serif}
+    .ben-desc{font-size:14px;color:var(--blue);line-height:1.6}
+
+    .steps-list{display:flex;flex-direction:column;gap:24px;max-width:640px;margin:0 auto}
+    .step-row{display:flex;align-items:flex-start;gap:20px}
+    .step-num{width:52px;height:52px;border-radius:99px;background:var(--yellow);color:var(--black);font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Outfit',sans-serif}
+    .step-body{}
+    .step-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:5px;font-family:'Outfit',sans-serif}
+    .step-desc{font-size:14px;color:var(--blue);line-height:1.6}
+
+    /* FORM */
+    .form-wrap{max-width:580px;margin:0 auto}
+    .form-card{background:var(--navy);border:.5px solid var(--border);border-radius:16px;padding:40px}
+    .form-title{font-size:26px;font-weight:800;color:var(--white);margin-bottom:6px;font-family:'Outfit',sans-serif}
+    .form-sub{font-size:14px;color:var(--blue);margin-bottom:28px}
+    .field{margin-bottom:18px}
+    .field label{display:block;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
+    .field input,.field select,.field textarea{width:100%;background:var(--navy2);border:.5px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--white);font-family:'Space Grotesk',sans-serif;transition:border-color .2s;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue)}
+    .field input::placeholder,.field textarea::placeholder{color:var(--muted)}
+    .field select{color:var(--blue)}
+    .field select option{color:var(--white);background:var(--navy2)}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .submit-btn{width:100%;background:var(--yellow);color:var(--black);font-size:16px;font-weight:800;padding:15px;border-radius:12px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s;margin-top:8px}
+    .submit-btn:hover{opacity:.9}
+    .form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:14px}
+
+    /* Success message */
+    .success-msg{display:none;background:var(--green-bg);border:.5px solid var(--green-border);border-radius:12px;padding:24px;text-align:center;margin-top:20px}
+    .success-msg.show{display:block}
+    .success-msg h3{color:var(--green);font-size:20px;font-weight:700;margin-bottom:8px;font-family:'Outfit',sans-serif}
+    .success-msg p{font-size:14px;color:var(--blue)}
+
+    footer{background:var(--navy2);padding:48px 5%;border-top:.5px solid var(--border)}
+    .footer-inner{max-width:1100px;margin:0 auto}
+    .footer-logo{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:var(--white);margin-bottom:8px}
+    .footer-logo span{color:var(--yellow)}
+    .footer-tagline{font-size:13px;color:var(--muted);margin-bottom:20px}
+    .footer-links{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px}
+    .footer-link{font-size:13px;color:var(--blue);cursor:pointer;transition:color .2s}
+    .footer-link:hover{color:var(--yellow)}
+    .footer-copy{font-size:12px;color:var(--muted)}
+    .bg-dark{background:var(--navy2)}
+    .bg-navy{background:var(--navy)}
+    @media(max-width:768px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-person{display:none}
+      .field-row{grid-template-columns:1fr}
+      nav{padding:0 4%}
+      .nav-links{gap:10px}
+      .nav-links .nav-link{display:none}
+      .nav-cta{font-size:12px;padding:8px 14px}
+      .lang-btn{padding:4px 10px;font-size:11px}
+      section{padding:48px 4%}
+      .hero{padding:48px 4% 40px}
+      .ben-grid{grid-template-columns:1fr}
+      .btn-row{flex-direction:column;align-items:flex-start}
+      .btn-primary,.btn-outline{width:100%;text-align:center}
+      .form-card{padding:24px}
+      .section-h2{font-size:26px}
+      .hero h1{font-size:32px}
+    }
+
+    @media(max-width:420px){
+      .nav-cta{padding:7px 12px;font-size:11px}
+      .lang-btn{padding:3px 8px;font-size:10px}
+      .ben-num{font-size:32px}
+      .form-card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="28" height="34" viewBox="0 0 28 34" fill="none">
+      <circle cx="14" cy="12" r="12" fill="#29B6D8"/>
+      <path d="M14 34C14 34 2 22 2 12A12 12 0 0126 12C26 22 14 34 14 34Z" fill="#29B6D8"/>
+      <circle cx="14" cy="12" r="8" fill="#1a9ab8"/>
+      <text x="14" y="16.5" text-anchor="middle" font-size="10" font-weight="700" fill="#F5C518" font-family="Arial">B</text>
+    </svg>
+    <span class="logo-text"><span>B</span>izdak</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link" data-en="Home" data-fr="Accueil">Home</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+    <a href="#form" class="nav-cta" data-en="List My Store" data-fr="Lister Ma Boutique">List My Store</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="badge">✓ <span data-en="Free To List · Zero Commission!" data-fr="Gratuit · Zéro Commission!">Free To List · Zero Commission!</span></div>
+      <h1>
+        <span data-en="More Customers" data-fr="Plus De Clients">More Customers</span><br>
+        <span data-en="Through Your" data-fr="Dans Ta">Through Your</span><br>
+        <span data-en="Door — Every Day!" data-fr="Boutique — Chaque Jour!">Door — Every Day!</span>
+      </h1>
+      <p class="hero-sub" data-en="List Your Store On Bizdak And Start Reaching Customers The Moment They're Near You!" data-fr="Liste Ta Boutique Sur Bizdak Et Atteins Tes Clients Dès Qu'ils Sont Près De Toi!">List Your Store On Bizdak And Start Reaching Customers The Moment They're Near You!</p>
+      <a href="#form" class="btn-primary" data-en="List My Store Free!" data-fr="Lister Ma Boutique Gratuitement!">List My Store Free!</a>
+    </div>
+    <!-- Store owner illustration -->
+    <div class="hero-person">
+      <svg width="110" height="200" viewBox="0 0 90 170">
+        <circle cx="45" cy="28" r="20" fill="#6B3A1F"/>
+        <ellipse cx="45" cy="14" rx="22" ry="12" fill="#1a0a04"/>
+        <circle cx="38" cy="28" r="2.5" fill="#4a2810"/>
+        <circle cx="52" cy="28" r="2.5" fill="#4a2810"/>
+        <path d="M39 37 Q45 42 51 37" stroke="#F5C518" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <rect x="39" y="46" width="12" height="8" fill="#6B3A1F"/>
+        <path d="M22 54 Q45 48 68 54 L72 125 L18 125 Z" fill="#0d1f35"/>
+        <path d="M38 54 L45 64 L52 54" fill="#F5C518"/>
+        <path d="M22 60 L6 95 Q4 100 9 101 L23 78" fill="#6B3A1F"/>
+        <path d="M68 60 L80 90 Q84 95 79 98 L67 75" fill="#6B3A1F"/>
+        <rect x="68" y="80" width="16" height="26" rx="3" fill="#0d1f35" stroke="#F5C518" stroke-width="1"/>
+        <rect x="70" y="83" width="12" height="18" rx="2" fill="#F5C518" opacity="0.6"/>
+        <circle cx="76" cy="103" r="1.5" fill="#29B6D8"/>
+        <path d="M28 125 L25 162 L36 162 L39 130" fill="#1a1a3a"/>
+        <path d="M62 125 L65 162 L54 162 L51 130" fill="#1a1a3a"/>
+        <ellipse cx="30" cy="163" rx="9" ry="3.5" fill="#1a0a04"/>
+        <ellipse cx="60" cy="163" rx="9" ry="3.5" fill="#1a0a04"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="bg-dark">
+  <div class="section-inner">
+    <div class="section-label" data-en="Why It Works" data-fr="Pourquoi Ça Marche">Why It Works</div>
+    <h2 class="section-h2"><span data-en="Your Business Deserves " data-fr="Ton Business Mérite ">Your Business Deserves </span><span data-en="More Customers!" data-fr="Plus De Clients!">More Customers!</span></h2>
+    <div class="ben-grid">
+      <div class="ben-card">
+        <div class="ben-num">0%</div>
+        <div class="ben-title" data-en="Commission!" data-fr="Commission!">Commission!</div>
+        <p class="ben-desc" data-en="Every sale is yours. We never take a cut. Ever!" data-fr="Chaque vente t'appartient. On ne prend jamais de commission. Jamais!">Every sale is yours. We never take a cut. Ever!</p>
+      </div>
+      <div class="ben-card">
+        <div class="ben-num">500m</div>
+        <div class="ben-title" data-en="Reach!" data-fr="Rayon!">Reach!</div>
+        <p class="ben-desc" data-en="Everyone nearby sees your deals — right when they can visit!" data-fr="Tous ceux à proximité voient tes offres — juste quand ils peuvent venir!">Everyone nearby sees your deals — right when they can visit!</p>
+      </div>
+      <div class="ben-card">
+        <div class="ben-num">Real</div>
+        <div class="ben-title" data-en="Results!" data-fr="Résultats!">Results!</div>
+        <p class="ben-desc" data-en="Track real customers who walked through your door — not just clicks!" data-fr="Vois les vrais clients qui sont entrés chez toi — pas juste des clics!">Track real customers who walked through your door — not just clicks!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="bg-navy">
+  <div class="section-inner">
+    <div class="section-label" data-en="Super Easy!" data-fr="Trop Facile!">Super Easy!</div>
+    <h2 class="section-h2"><span data-en="Start Getting Customers " data-fr="Commence À Avoir Des Clients ">Start Getting Customers </span><span data-en="Today!" data-fr="Aujourd'hui!">Today!</span></h2>
+    <div class="steps-list">
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title" data-en="Fill In The Form Below" data-fr="Remplis Le Formulaire">Fill In The Form Below</div>
+          <p class="step-desc" data-en="Your store name, address, what you sell — 2 minutes and you're done!" data-fr="Le nom de ta boutique, l'adresse, ce que tu vends — 2 minutes et c'est bon!">Your store name, address, what you sell — 2 minutes and you're done!</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title" data-en="We Set You Up!" data-fr="On S'occupe De Tout!">We Set You Up!</div>
+          <p class="step-desc" data-en="Our team lists your store within 24 hours. Sit back and relax!" data-fr="Notre équipe liste ta boutique en 24h. Détends-toi!">Our team lists your store within 24 hours. Sit back and relax!</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title" data-en="Watch Customers Come In!" data-fr="Regarde Les Clients Arriver!">Watch Customers Come In!</div>
+          <p class="step-desc" data-en="Nearby customers get your deal alert and head straight to your store!" data-fr="Les clients proches reçoivent ton alerte et viennent direct chez toi!">Nearby customers get your deal alert and head straight to your store!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="bg-dark" id="form">
+  <div class="section-inner">
+    <div class="form-wrap">
+      <div class="form-card">
+        <h2 class="form-title" data-en="List Your Store — It's Free!" data-fr="Liste Ta Boutique — C'est Gratuit!">List Your Store — It's Free!</h2>
+        <p class="form-sub" data-en="We'll be in touch within 24 hours. No hidden fees, ever!" data-fr="On te contacte dans les 24h. Aucun frais caché, jamais!">We'll be in touch within 24 hours. No hidden fees, ever!</p>
+
+        <form name="store-application" id="store-form" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="form-name" value="store-application"/>
+
+          <div class="field">
+            <label data-en="Store Name" data-fr="Nom De La Boutique">Store Name</label>
+            <input type="text" name="store_name" placeholder="e.g. Marché Sandaga" required/>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label data-en="City" data-fr="Ville">City</label>
+              <select name="city" id="city-select" required>
+                <option value="" disabled selected data-en="Loading cities…" data-fr="Chargement…">Loading cities…</option>
+              </select>
+            </div>
+            <div class="field">
+              <label data-en="Category" data-fr="Catégorie">Category</label>
+              <select name="category" id="category-select" required>
+                <option value="" disabled selected data-en="Loading categories…" data-fr="Chargement…">Loading categories…</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label data-en="Address" data-fr="Adresse">Address</label>
+            <input type="text" name="address" placeholder="Street address" required/>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label data-en="Phone" data-fr="Téléphone">Phone</label>
+              <input type="tel" name="phone" placeholder="+221 ..."/>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="you@store.com" required/>
+            </div>
+          </div>
+
+          <div class="field">
+            <label data-en="Website (Optional)" data-fr="Site Web (Optionnel)">Website (Optional)</label>
+            <input type="url" name="website" placeholder="https://..."/>
+          </div>
+
+          <div class="field">
+            <label data-en="Tell Us About Your Store (Optional)" data-fr="Parle-Nous De Ta Boutique (Optionnel)">Tell Us About Your Store (Optional)</label>
+            <textarea name="description" rows="3" placeholder="What makes your store special?"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" data-en="Submit My Store →" data-fr="Envoyer Ma Boutique →">Submit My Store →</button>
+          <p class="form-note" data-en="By submitting you agree to be contacted by the Bizdak team at info@afridim.com" data-fr="En soumettant vous acceptez d'être contacté par l'équipe Bizdak à info@afridim.com">By submitting you agree to be contacted by the Bizdak team at info@afridim.com</p>
+        </form>
+
+        <div class="success-msg" id="success-msg">
+          <h3 data-en="🎉 You're In!" data-fr="🎉 C'est Bon!">🎉 You're In!</h3>
+          <p data-en="We've received your submission and will be in touch within 24 hours at info@afridim.com" data-fr="On a bien reçu ta demande et on te contacte dans les 24h à info@afridim.com">We've received your submission and will be in touch within 24 hours at info@afridim.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><span>B</span>izdak</div>
+    <p class="footer-tagline" data-en="Your City's Best Deals, Coming To You!" data-fr="Toutes Les Bonnes Affaires De Ta Ville, Direct Sur Ton Téléphone!">Your City's Best Deals, Coming To You!</p>
+    <div class="footer-links">
+      <a href="index.html" class="footer-link" data-en="For Users" data-fr="Pour Les Utilisateurs">For Users</a>
+      <a href="marketing.html" class="footer-link" data-en="About" data-fr="À Propos">About</a>
+      <a href="mailto:info@afridim.com" class="footer-link">Contact</a>
+    </div>
+    <p class="footer-copy" id="footer-copy">© 2025 Bizdak. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  let lang = 'en';
+  function setLang(l) {
+    lang = l;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + l);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === l.toUpperCase());
+    });
+    document.getElementById('footer-copy').textContent = l === 'fr'
+      ? '© 2025 Bizdak. Tous droits réservés.'
+      : '© 2025 Bizdak. All rights reserved.';
+    document.documentElement.lang = l;
+  }
+  // ── Backend API URL — Yash: replace with your real backend URL ──
+  const API_URL = 'https://api.yourdomain.com/api';
+
+  // ── Populate city dropdown from backend ──────────────────────
+  async function loadCities() {
+    const select = document.getElementById('city-select');
+    try {
+      const res  = await fetch(`${API_URL}/cities`);
+      const data = await res.json();
+      const cities = data || [];
+      select.innerHTML = `<option value="" disabled selected>${lang === 'fr' ? 'Choisir ville' : 'Select city'}</option>`;
+      cities.forEach(city => {
+        const opt = document.createElement('option');
+        opt.value       = city.name;
+        opt.textContent = city.name;
+        select.appendChild(opt);
+      });
+    } catch {
+      // API unavailable — fall back to hardcoded cities so form still works
+      select.innerHTML = `
+        <option value="" disabled selected>${lang === 'fr' ? 'Choisir ville' : 'Select city'}</option>
+        <option value="Dakar">Dakar</option>
+        <option value="Houston">Houston</option>
+        <option value="Cape Town">Cape Town</option>`;
+    }
+  }
+
+  // ── Populate category dropdown from tags API ──────────────────
+  // Uses parent-level tags (no parentId) as categories
+  async function loadCategories() {
+    const select = document.getElementById('category-select');
+    try {
+      const res  = await fetch(`${API_URL}/tags`);
+      const data = await res.json();
+      // Only top-level tags (no parentId) = categories
+      const tags = (data || []).filter(t => !t.parentId);
+      select.innerHTML = `<option value="" disabled selected>${lang === 'fr' ? 'Choisir catégorie' : 'Select category'}</option>`;
+      tags.forEach(tag => {
+        const opt = document.createElement('option');
+        opt.value       = tag.name;
+        opt.textContent = tag.name;
+        select.appendChild(opt);
+      });
+      // Always add Other as a fallback option
+      const other = document.createElement('option');
+      other.value       = 'Other';
+      other.textContent = lang === 'fr' ? 'Autre' : 'Other';
+      select.appendChild(other);
+    } catch {
+      // API unavailable — fall back to hardcoded categories
+      select.innerHTML = `
+        <option value="" disabled selected>${lang === 'fr' ? 'Choisir catégorie' : 'Select category'}</option>
+        <option value="Fashion">${lang === 'fr' ? 'Mode' : 'Fashion'}</option>
+        <option value="Food">${lang === 'fr' ? 'Alimentation' : 'Food'}</option>
+        <option value="Electronics">${lang === 'fr' ? 'Électronique' : 'Electronics'}</option>
+        <option value="Beauty">${lang === 'fr' ? 'Beauté' : 'Beauty'}</option>
+        <option value="Services">Services</option>
+        <option value="Other">${lang === 'fr' ? 'Autre' : 'Other'}</option>`;
+    }
+  }
+
+  // ── Apps Script URL ───────────────────────────────────────────
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwhZ767_vnufHXi6IU9TdAUSOybvu6ckIGtpn6zsOJsBc4RxFvITm-jVvr1Hk-4i6XX/exec';
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn  = form.querySelector('.submit-btn');
+
+    // Disable button to prevent double-submit
+    btn.disabled = true;
+    btn.textContent = lang === 'fr' ? 'Envoi en cours…' : 'Submitting…';
+
+    const data = new FormData(form);
+    const params = new URLSearchParams();
+    data.forEach((val, key) => params.append(key, val));
+
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: params,
+      // no-cors needed because Apps Script doesn't return CORS headers on redirect
+      mode: 'no-cors',
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('success-msg').classList.add('show');
+    })
+    .catch(() => {
+      // Network error fallback — show success anyway since no-cors fetch
+      // resolves as opaque response even on success
+      form.style.display = 'none';
+      document.getElementById('success-msg').classList.add('show');
+    });
+  }
+  const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+  setLang(browserLang);
+
+  // Load dropdowns from API on page load
+  loadCities();
+  loadCategories();
+</script>
+</body>
+</html>

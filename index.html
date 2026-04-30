@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bizdak — We Bring The Best Deals To You!</title>
+
+  <!-- Open Graph / WhatsApp / iMessage preview -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:url"         content="https://bizdak.app/"/>
+  <meta property="og:title"       content="Bizdak — We Bring The Best Deals To You!"/>
+  <meta property="og:description" content="Never Miss A Great Deal From Stores Around You!"/>
+  <meta property="og:image"       content="https://bizdak.app/images/og-preview.png"/>
+  <meta name="twitter:card"       content="summary_large_image"/>
+  <meta name="twitter:title"      content="Bizdak — We Bring The Best Deals To You!"/>
+  <meta name="twitter:description"content="Never Miss A Great Deal From Stores Around You!"/>
+  <meta name="twitter:image"      content="https://bizdak.app/images/og-preview.png"/>
+  <meta name="description"        content="Never Miss A Great Deal From Stores Around You! Download Bizdak free on iOS and Android."/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --navy:    #0d1f35;
+      --navy2:   #060e1a;
+      --navy3:   #0a1828;
+      --border:  #1e3a52;
+      --blue:    #29B6D8;
+      --yellow:  #F5C518;
+      --black:   #0d1a2e;
+      --white:   #ffffff;
+      --muted:   #2a5a7a;
+    }
+
+    /* ── Light mode — follows OS/browser preference ── */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --navy:    #f0f6ff;
+        --navy2:   #e8f0fb;
+        --navy3:   #ddeaf8;
+        --border:  #b8d0e8;
+        --blue:    #1a8fb5;
+        --yellow:  #d4a800;
+        --black:   #0d1a2e;
+        --white:   #0d1a2e;
+        --muted:   #4a7a9a;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--navy2);
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo svg { flex-shrink: 0; }
+    .logo-text { font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .logo-text span { color: var(--yellow); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-size: 14px; color: var(--blue); font-weight: 500; cursor: pointer; transition: color .2s; }
+    .nav-link:hover { color: var(--yellow); }
+    .lang-toggle { display: flex; background: var(--navy3); border-radius: 99px; border: 0.5px solid var(--border); overflow: hidden; }
+    .lang-btn { padding: 5px 14px; font-size: 12px; font-weight: 700; cursor: pointer; color: var(--blue); background: transparent; border: none; font-family: 'Space Grotesk', sans-serif; transition: all .2s; }
+    .lang-btn.active { background: var(--blue); color: var(--black); }
+    .nav-cta { background: var(--yellow); color: var(--black); font-size: 14px; font-weight: 700; padding: 10px 22px; border-radius: 99px; cursor: pointer; transition: opacity .2s; white-space: nowrap; }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 80px 5% 64px;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    .hero h1 span { color: var(--yellow); }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 36px;
+      max-width: 540px;
+      line-height: 1.5;
+    }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { background: var(--yellow); color: var(--black); font-size: 15px; font-weight: 700; padding: 14px 30px; border-radius: 99px; cursor: pointer; border: none; font-family: 'Space Grotesk', sans-serif; transition: opacity .2s; white-space: nowrap; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-outline { background: transparent; color: var(--blue); font-size: 15px; font-weight: 600; padding: 14px 30px; border-radius: 99px; cursor: pointer; border: 1.5px solid var(--blue); font-family: 'Space Grotesk', sans-serif; transition: all .2s; white-space: nowrap; }
+    .btn-outline:hover { background: var(--blue); color: var(--black); }
+
+    /* People illustrations */
+    .hero-people { display: flex; gap: 12px; align-items: flex-end; flex-shrink: 0; }
+
+    /* Mini phones */
+    .phones-row {
+      max-width: 1100px;
+      margin: 52px auto 0;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 4%;
+    }
+    .mini-phone { background: var(--navy2); border-radius: 22px; padding: 5px; border: 1px solid var(--border); width: 160px; flex-shrink: 0; }
+    .mini-screen { background: var(--navy); border-radius: 18px; overflow: hidden; }
+    .mini-header { padding: 7px 9px; border-bottom: 0.5px solid var(--border); }
+    .mini-title { font-size: 10px; font-weight: 700; color: var(--yellow); font-family: 'Outfit', sans-serif; }
+    .mini-city { font-size: 7px; color: var(--blue); }
+    .mini-card { margin: 5px; background: var(--navy3); border-radius: 6px; overflow: hidden; border: 0.5px solid var(--border); }
+    .mini-img { width: 100%; height: 65px; display: flex; align-items: center; justify-content: center; font-size: 26px; position: relative; }
+    .mini-disc { position: absolute; top: 4px; right: 4px; background: var(--yellow); color: var(--black); font-size: 7px; font-weight: 800; padding: 1px 5px; border-radius: 99px; }
+    .mini-body { padding: 5px 6px 7px; }
+    .mini-deal-title { font-size: 8px; font-weight: 700; color: var(--white); margin-bottom: 1px; }
+    .mini-store { font-size: 7px; color: var(--blue); margin-bottom: 2px; }
+    .mini-price { font-size: 9px; font-weight: 800; color: var(--yellow); }
+
+    /* ── SECTIONS ── */
+    section { padding: 72px 5%; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 12px; font-weight: 700; color: var(--blue); font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: .1em; text-align: center; margin-bottom: 12px; }
+    .section-h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; color: var(--white); text-align: center; margin-bottom: 48px; line-height: 1.2; }
+    .section-h2 span { color: var(--yellow); }
+
+    /* Feature cards */
+    .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .feat-card { background: var(--navy); border: 0.5px solid var(--border); border-radius: 14px; padding: 28px; text-align: center; transition: border-color .2s; }
+    .feat-card:hover { border-color: var(--blue); }
+    .feat-icon { font-size: 36px; margin-bottom: 16px; }
+    .feat-title { font-size: 16px; font-weight: 700; color: var(--yellow); margin-bottom: 10px; font-family: 'Outfit', sans-serif; }
+    .feat-desc { font-size: 14px; color: var(--blue); line-height: 1.6; }
+
+    /* Steps */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .step-card { text-align: center; padding: 20px; }
+    .step-num { width: 52px; height: 52px; border-radius: 99px; background: var(--yellow); color: var(--black); font-size: 22px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-family: 'Outfit', sans-serif; }
+    .step-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; font-family: 'Outfit', sans-serif; }
+    .step-desc { font-size: 14px; color: var(--blue); line-height: 1.6; }
+
+    /* Cities */
+    .city-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+    .city-card { background: var(--navy2); border: 0.5px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+    .city-card:hover { border-color: var(--blue); }
+    .city-flag { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 52px; }
+    .city-body { padding: 16px; }
+    .city-name { font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 3px; font-family: 'Outfit', sans-serif; }
+    .city-country { font-size: 12px; color: var(--blue); margin-bottom: 8px; }
+    .city-stat { font-size: 12px; color: var(--yellow); font-weight: 700; }
+    .city-soon { font-size: 12px; color: var(--blue); font-weight: 600; }
+
+    /* Testimonials */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .tcard { background: var(--navy); border: 0.5px solid var(--border); border-radius: 14px; padding: 24px; }
+    .tcard-emoji { font-size: 24px; margin-bottom: 12px; }
+    .tcard-quote { font-size: 14px; color: var(--white); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+    .tcard-name { font-size: 13px; color: var(--yellow); font-weight: 700; }
+    .tcard-city { font-size: 11px; color: var(--blue); font-family: 'Space Grotesk', sans-serif; }
+
+    /* Download bar */
+    .dl-bar { background: var(--blue); padding: 64px 5%; text-align: center; }
+    .dl-h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; color: var(--black); margin-bottom: 10px; font-family: 'Outfit', sans-serif; }
+    .dl-sub { font-size: 16px; color: #0d4a5e; margin-bottom: 32px; font-weight: 500; }
+    .dl-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .dl-btn { background: var(--black); color: var(--white); font-size: 14px; font-weight: 700; padding: 14px 26px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: opacity .2s; font-family: 'Space Grotesk', sans-serif; }
+    .dl-btn:hover { opacity: 0.85; }
+    .dl-btn-sub { font-size: 11px; color: var(--blue); display: block; font-weight: 400; }
+
+    /* Footer */
+    footer { background: var(--navy2); padding: 48px 5%; border-top: 0.5px solid var(--border); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-logo { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .footer-logo span { color: var(--yellow); }
+    .footer-tagline { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .footer-link { font-size: 13px; color: var(--blue); cursor: pointer; transition: color .2s; }
+    .footer-link:hover { color: var(--yellow); }
+    .footer-copy { font-size: 12px; color: var(--muted); }
+
+    /* Backgrounds alternating */
+    .bg-dark { background: var(--navy2); }
+    .bg-navy { background: var(--navy); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-people { display: none; }
+      .nav-links .nav-link { display: none; }
+      .nav-links .nav-link-business { display: inline; }
+      nav { padding: 0 4%; }
+      .phones-row { gap: 12px; padding: 0 4%; }
+      .mini-phone { width: 140px; }
+      section { padding: 48px 4%; }
+      .btn-row { flex-direction: column; align-items: flex-start; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .dl-btns { flex-direction: column; align-items: center; }
+      .dl-btn { width: 220px; justify-content: center; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .city-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 420px) {
+      .mini-phone { width: 120px; }
+      .phones-row { gap: 8px; }
+      .mini-img { height: 50px; font-size: 22px; }
+      .nav-cta { padding: 8px 14px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="28" height="34" viewBox="0 0 28 34" fill="none">
+      <circle cx="14" cy="12" r="12" fill="#29B6D8"/>
+      <path d="M14 34C14 34 2 22 2 12A12 12 0 0126 12C26 22 14 34 14 34Z" fill="#29B6D8"/>
+      <circle cx="14" cy="12" r="8" fill="#1a9ab8"/>
+      <text x="14" y="16.5" text-anchor="middle" font-size="10" font-weight="700" fill="#F5C518" font-family="Arial">B</text>
+    </svg>
+    <span class="logo-text"><span>B</span>izdak</span>
+  </a>
+  <div class="nav-links">
+    <a href="#cities" class="nav-link" data-en="Cities" data-fr="Villes">Cities</a>
+    <a href="store.html" class="nav-link nav-link-business" data-en="For Businesses" data-fr="Pour Les Boutiques">For Businesses</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+    <a href="#download" class="nav-cta" data-en="Download" data-fr="Télécharge">Download</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>
+        <span data-en="We Bring The" data-fr="On Vous Apporte">We Bring The</span><br>
+        <span data-en="Best Deals To You!" data-fr="Les Meilleures Offres!">Best Deals To You!</span>
+      </h1>
+      <p class="hero-sub" data-en="Never Miss A Great Deal From Stores Around You!" data-fr="Toutes Les Bonnes Affaires De Ta Ville, Direct Sur Ton Téléphone!">Never Miss A Great Deal From Stores Around You!</p>
+      <div class="btn-row">
+        <a href="#download" class="btn-primary" data-en="Download For iOS" data-fr="Télécharge Sur iOS">Download For iOS</a>
+        <a href="#download" class="btn-outline" data-en="Download For Android" data-fr="Télécharge Sur Android">Download For Android</a>
+      </div>
+    </div>
+    <!-- People -->
+    <div class="hero-people">
+      <svg width="90" height="180" viewBox="0 0 80 160">
+        <circle cx="40" cy="28" r="20" fill="#8B5E3C"/>
+        <ellipse cx="40" cy="16" rx="22" ry="14" fill="#2C1810"/>
+        <ellipse cx="22" cy="30" rx="8" ry="16" fill="#2C1810"/>
+        <ellipse cx="58" cy="30" rx="8" ry="16" fill="#2C1810"/>
+        <circle cx="33" cy="28" r="3" fill="#6B4226"/>
+        <circle cx="47" cy="28" r="3" fill="#6B4226"/>
+        <rect x="34" y="45" width="12" height="10" fill="#8B5E3C"/>
+        <path d="M20 55 Q40 50 60 55 L65 120 L15 120 Z" fill="#29B6D8"/>
+        <path d="M35 55 L40 65 L45 55" fill="#F5C518"/>
+        <path d="M20 60 L5 90 Q3 95 8 96 L20 75" fill="#8B5E3C"/>
+        <path d="M60 60 L72 85 Q76 90 72 93 L60 72" fill="#8B5E3C"/>
+        <rect x="62" y="80" width="16" height="26" rx="3" fill="#0d1f35" stroke="#29B6D8" stroke-width="1"/>
+        <rect x="64" y="83" width="12" height="18" rx="2" fill="#29B6D8" opacity="0.8"/>
+        <circle cx="70" cy="103" r="1.5" fill="#F5C518"/>
+        <path d="M25 120 L22 155 L32 155 L35 125" fill="#1a1a3a"/>
+        <path d="M55 120 L58 155 L48 155 L45 125" fill="#1a1a3a"/>
+        <ellipse cx="27" cy="156" rx="9" ry="4" fill="#2C1810"/>
+        <ellipse cx="53" cy="156" rx="9" ry="4" fill="#2C1810"/>
+        <path d="M35 36 Q40 40 45 36" stroke="#F5C518" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <svg width="90" height="180" viewBox="0 0 80 160">
+        <circle cx="40" cy="26" r="19" fill="#5C3317"/>
+        <ellipse cx="40" cy="14" rx="19" ry="10" fill="#1a0a04"/>
+        <circle cx="33" cy="26" r="2.5" fill="#3d2010"/>
+        <circle cx="47" cy="26" r="2.5" fill="#3d2010"/>
+        <rect x="34" y="43" width="12" height="10" fill="#5C3317"/>
+        <path d="M18 53 Q40 48 62 53 L66 118 L14 118 Z" fill="#F5C518"/>
+        <path d="M34 53 L40 62 L46 53" fill="#0d1f35"/>
+        <path d="M18 58 L4 92 Q2 97 7 98 L20 76" fill="#5C3317"/>
+        <path d="M62 58 L74 88 Q78 93 73 96 L62 74" fill="#5C3317"/>
+        <rect x="2" y="82" width="16" height="26" rx="3" fill="#0d1f35" stroke="#F5C518" stroke-width="1"/>
+        <rect x="4" y="85" width="12" height="18" rx="2" fill="#F5C518" opacity="0.7"/>
+        <circle cx="10" cy="105" r="1.5" fill="#29B6D8"/>
+        <path d="M24 118 L21 155 L31 155 L34 123" fill="#0d1f35"/>
+        <path d="M56 118 L59 155 L49 155 L46 123" fill="#0d1f35"/>
+        <ellipse cx="26" cy="156" rx="9" ry="4" fill="#1a0a04"/>
+        <ellipse cx="54" cy="156" rx="9" ry="4" fill="#1a0a04"/>
+        <path d="M35 34 Q40 38 45 34" stroke="#F5C518" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <!-- Mini phones -->
+  <div class="phones-row">
+    <div class="mini-phone">
+      <div class="mini-screen">
+        <div class="mini-header">
+          <div class="mini-title" data-en="Deals" data-fr="Bons Plans">Deals</div>
+          <div class="mini-city">Dakar ›</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-img" style="background:#1a3a2a">🧣<div class="mini-disc">-30%</div></div>
+          <div class="mini-body">
+            <div class="mini-deal-title" data-en="Wax Fabrics Sale" data-fr="Soldes Pagnes">Wax Fabrics Sale</div>
+            <div class="mini-store">Marché Sandaga</div>
+            <div class="mini-price">13,500 FCFA</div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-img" style="background:#1a1e0a">🍲</div>
+          <div class="mini-body">
+            <div class="mini-deal-title" data-en="Lunch Special" data-fr="Spécial Déj">Lunch Special</div>
+            <div class="mini-store">Chez Fatou</div>
+            <div class="mini-price" style="color:#29B6D8" data-en="See In Store" data-fr="En Boutique">See In Store</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mini-phone">
+      <div class="mini-screen">
+        <div class="mini-header">
+          <div class="mini-title" data-en="Deals" data-fr="Bons Plans">Deals</div>
+          <div class="mini-city">Houston ›</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-img" style="background:#1a1e0a">🍔<div class="mini-disc">-20%</div></div>
+          <div class="mini-body">
+            <div class="mini-deal-title">Happy Hour BBQ</div>
+            <div class="mini-store">Tex Burger Co.</div>
+            <div class="mini-price">$12.99</div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-img" style="background:#1a1025">👗</div>
+          <div class="mini-body">
+            <div class="mini-deal-title" data-en="Summer Collection" data-fr="Collection Été">Summer Collection</div>
+            <div class="mini-store">Houston Market</div>
+            <div class="mini-price" style="color:#29B6D8" data-en="See In Store" data-fr="En Boutique">See In Store</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mini-phone">
+      <div class="mini-screen">
+        <div class="mini-header">
+          <div class="mini-title" data-en="Deals" data-fr="Bons Plans">Deals</div>
+          <div class="mini-city">Cape Town ›</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-img" style="background:#1a2a1a">🍺<div class="mini-disc">-15%</div></div>
+          <div class="mini-body">
+            <div class="mini-deal-title" data-en="Craft Beer Tasting" data-fr="Dégustation Bière">Craft Beer Tasting</div>
+            <div class="mini-store">Woodstock Brew</div>
+            <div class="mini-price">R250</div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-img" style="background:#1a1e2a">🌶</div>
+          <div class="mini-body">
+            <div class="mini-deal-title" data-en="Cape Malay Spices" data-fr="Épices Cape Malay">Cape Malay Spices</div>
+            <div class="mini-store">Bo-Kaap Spices</div>
+            <div class="mini-price" style="color:#29B6D8" data-en="See In Store" data-fr="En Boutique">See In Store</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BIZDAK -->
+<section class="bg-dark">
+  <div class="section-inner">
+    <div class="section-label" data-en="Why You'll Love It" data-fr="Pourquoi C'est Trop Bien">Why You'll Love It</div>
+    <h2 class="section-h2"><span data-en="Your City. Your Deals. " data-fr="Ta Ville. Tes Bons Plans. ">Your City. Your Deals. </span><span data-en="Your Way!" data-fr="À Ta Façon!">Your Way!</span></h2>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon">🛍️</div>
+        <div class="feat-title" data-en="Deals Near You!" data-fr="Les Bons Plans Près De Toi!">Deals Near You!</div>
+        <p class="feat-desc" data-en="The best offers from your favourite stores, right when you need them." data-fr="Les meilleures offres de tes boutiques fav, direct quand t'en as besoin.">The best offers from your favourite stores, right when you need them.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-title" data-en="Instant Alerts!" data-fr="Alertes Direct Sur Ton Tel!">Instant Alerts!</div>
+        <p class="feat-desc" data-en="Get notified the second a great deal is nearby. No scrolling, no searching!" data-fr="Un bon plan à côté? Ton tel te prévient direct. Pas besoin de chercher!">Get notified the second a great deal is nearby. No scrolling, no searching!</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎯</div>
+        <div class="feat-title" data-en="Just What You Love!" data-fr="Rien Que Ce Que T'Aimes!">Just What You Love!</div>
+        <p class="feat-desc" data-en="Tell us your interests and we only show deals that are right for you." data-fr="Dis-nous ce que t'aimes et on te montre que les offres faites pour toi.">Tell us your interests and we only show deals that are right for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="bg-navy">
+  <div class="section-inner">
+    <div class="section-label" data-en="So Simple!" data-fr="Trop Simple!">So Simple!</div>
+    <h2 class="section-h2"><span data-en="Three Steps To " data-fr="3 Étapes Et ">Three Steps To </span><span data-en="Your Next Great Deal!" data-fr="C'est Dans La Poche!">Your Next Great Deal!</span></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title" data-en="Download Bizdak!" data-fr="Télécharge Bizdak!">Download Bizdak!</div>
+        <p class="step-desc" data-en="Pick your city and your interests. Ready in under a minute!" data-fr="Choisis ta ville et tes intérêts. Moins d'une minute et c'est parti!">Pick your city and your interests. Ready in under a minute!</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title" data-en="Go About Your Day!" data-fr="Vis Ta Vie!">Go About Your Day!</div>
+        <p class="step-desc" data-en="Just go about your day as usual and let Bizdak find you the best deals!" data-fr="T'as Rien À Faire — Bizdak S'occupe De Tout!">Just go about your day as usual and let Bizdak find you the best deals!</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title" data-en="Get The Deal!" data-fr="C'est À Toi!">Get The Deal!</div>
+        <p class="step-desc" data-en="A great deal nearby? You'll know instantly! Tap and enjoy the savings!" data-fr="Un bon plan dans le coin? Tu le sais direct! Appuie et profite grave!">A great deal nearby? You'll know instantly! Tap and enjoy the savings!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CITIES -->
+<section class="bg-dark" id="cities">
+  <div class="section-inner">
+    <div class="section-label" data-en="We're Live!" data-fr="On Est Là!">We're Live!</div>
+    <h2 class="section-h2"><span data-en="Now In " data-fr="Déjà Dans ">Now In </span><span data-en="3 Amazing Cities!" data-fr="3 Villes De Ouf!">3 Amazing Cities!</span></h2>
+    <div class="city-grid">
+      <div class="city-card">
+        <div class="city-flag" style="background:#1a3a2a">🇸🇳</div>
+        <div class="city-body">
+          <div class="city-name">Dakar</div>
+          <div class="city-country">Sénégal</div>
+          <div class="city-stat" data-en="200+ Stores Ready!" data-fr="200+ Boutiques Dispo!">200+ Stores Ready!</div>
+        </div>
+      </div>
+      <div class="city-card">
+        <div class="city-flag" style="background:#1a1e2a">🇺🇸</div>
+        <div class="city-body">
+          <div class="city-name">Houston</div>
+          <div class="city-country">USA</div>
+          <div class="city-soon" data-en="Coming Soon!" data-fr="Ça Arrive Vite!">Coming Soon!</div>
+        </div>
+      </div>
+      <div class="city-card">
+        <div class="city-flag" style="background:#1a2a3a">🇿🇦</div>
+        <div class="city-body">
+          <div class="city-name">Cape Town</div>
+          <div class="city-country" data-en="South Africa" data-fr="Afrique du Sud">South Africa</div>
+          <div class="city-soon" data-en="Coming Soon!" data-fr="Ça Arrive Vite!">Coming Soon!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="bg-navy">
+  <div class="section-inner">
+    <div class="section-label" data-en="People Are Loving It!" data-fr="Ils Kiffent Tous!">People Are Loving It!</div>
+    <h2 class="section-h2"><span data-en="Des Vraies Gens. " data-fr="Des Vraies Gens. ">Real People. </span><span data-en="De Vraies Économies!" data-fr="De Vraies Économies!">Real Savings!</span></h2>
+    <div class="testimonials-grid">
+      <div class="tcard">
+        <div class="tcard-emoji">😍</div>
+        <p class="tcard-quote" data-en='"I got 30% off on fabrics I was going to buy anyway! Bizdak is incredible!"' data-fr='"J'allais passer devant sans m'arrêter — Bizdak m'a sauvé 30%! Trop fort!"'>"I got 30% off on fabrics I was going to buy anyway! Bizdak is incredible!"</p>
+        <div class="tcard-name">Fatima D.</div>
+        <div class="tcard-city">Dakar</div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-emoji">🙌</div>
+        <p class="tcard-quote" data-en='"Found deals I never knew existed — right around the corner from me! Love it!"' data-fr='"Des bons plans que je connaissais même pas, juste à côté de chez moi!"'>"Found deals I never knew existed — right around the corner from me! Love it!"</p>
+        <div class="tcard-name">Marcus T.</div>
+        <div class="tcard-city">Houston</div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-emoji">🔥</div>
+        <p class="tcard-quote" data-en='"Every time I go out I find something amazing with Bizdak. Best app on my phone!"' data-fr='"Meilleure appli du moment. À chaque sortie je trouve un truc!"'>"Every time I go out I find something amazing with Bizdak. Best app on my phone!"</p>
+        <div class="tcard-name">Amahle N.</div>
+        <div class="tcard-city">Cape Town</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<div class="dl-bar" id="download">
+  <h2 class="dl-h2" data-en="Ready To Save Big?" data-fr="Tu Rates Quoi Encore?">Ready To Save Big?</h2>
+  <p class="dl-sub" data-en="Download Bizdak Free — iOS & Android!" data-fr="Télécharge Bizdak — C'est Gratuit!">Download Bizdak Free — iOS & Android!</p>
+  <div class="dl-btns">
+    <a href="#" class="dl-btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <div><span class="dl-btn-sub" data-en="Download on the" data-fr="Télécharge Sur">Download on the</span>App Store</div>
+    </a>
+    <a href="#" class="dl-btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.35.2.74.24 1.12.1l12.5-7.2L13.9 13.8l-10.7 9.96zM21.4 10.1L18.2 8.3l-3.5 3.1 3.5 3.3 3.2-1.8c.9-.52.9-1.82 0-2.82zM1.05.24C.8.5.63.9.63 1.4v21.2c0 .5.17.9.42 1.16l.08.07 11.9-11.9v-.28L1.13.17l-.08.07zM16.7 15.7l-3.5-3.3-12 11.9c.38.18.83.15 1.2-.07l14.3-8.53z"/></svg>
+      <div><span class="dl-btn-sub" data-en="Get it on" data-fr="Dispo Sur">Get it on</span>Google Play</div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><span>B</span>izdak</div>
+    <p class="footer-tagline" data-en="Your City's Best Deals, Coming To You!" data-fr="Toutes Les Bonnes Affaires De Ta Ville, Direct Sur Ton Téléphone!">Your City's Best Deals, Coming To You!</p>
+    <div class="footer-links">
+      <a href="store.html" class="footer-link" data-en="For Businesses" data-fr="Pour Les Boutiques">For Businesses</a>
+      <a href="marketing.html" class="footer-link" data-en="About" data-fr="À Propos">About</a>
+      <a href="#cities" class="footer-link" data-en="Cities" data-fr="Villes">Cities</a>
+      <a href="mailto:info@afridim.com" class="footer-link">Contact</a>
+    </div>
+    <p class="footer-copy" id="footer-copy">© 2025 Bizdak. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  let lang = 'en';
+
+  function setLang(l) {
+    lang = l;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + l);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === l.toUpperCase());
+    });
+    document.getElementById('footer-copy').textContent = l === 'fr'
+      ? '© 2025 Bizdak. Tous droits réservés.'
+      : '© 2025 Bizdak. All rights reserved.';
+    document.documentElement.lang = l;
+  }
+
+  // Detect browser language on load
+  const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+  setLang(browserLang);
+</script>
+</body>
+</html>
