@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='38' fill='%2329B6D8'/><polygon points='35,70 65,70 50,95' fill='%2329B6D8'/><circle cx='50' cy='40' r='26' fill='%231a7a96'/><text x='50' y='52' text-anchor='middle' font-size='30' font-weight='700' fill='%23F5C518' font-family='Arial'>B</text></svg>"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0d1f35"/>
   <title>Bizdak For Businesses — List Your Store Free!</title>
   <meta property="og:type"        content="website"/>
   <meta property="og:url"         content="https://bizdak.app/store"/>
@@ -126,6 +128,19 @@
       .ben-num{font-size:32px}
       .form-card{padding:18px}
     }
+
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .social-links { display: flex; gap: 12px; align-items: center; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 99px;
+      background: var(--navy); border: 0.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, background .2s;
+      flex-shrink: 0;
+    }
+    .social-btn:hover { border-color: var(--blue); background: var(--navy3); }
+    .social-btn svg { width: 16px; height: 16px; fill: var(--blue); transition: fill .2s; }
+    .social-btn:hover svg { fill: var(--yellow); }
   </style>
 </head>
 <body>
@@ -286,8 +301,8 @@
               <input type="tel" name="phone" placeholder="+221 ..."/>
             </div>
             <div class="field">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="you@store.com" required/>
+              <label data-en="Email (Optional)" data-fr="Email (Optionnel)">Email (Optional)</label>
+              <input type="email" name="email" placeholder="you@store.com"/>
             </div>
           </div>
 
@@ -323,7 +338,7 @@
       <a href="marketing.html" class="footer-link" data-en="About" data-fr="À Propos">About</a>
       <a href="mailto:info@afridim.com" class="footer-link">Contact</a>
     </div>
-    <p class="footer-copy" id="footer-copy">© 2025 Bizdak. All rights reserved.</p>
+    <p class="footer-copy" id="footer-copy">© 2026 Bizdak. All rights reserved.</p>
   </div>
 </footer>
 
@@ -338,12 +353,12 @@
       btn.classList.toggle('active', btn.textContent === l.toUpperCase());
     });
     document.getElementById('footer-copy').textContent = l === 'fr'
-      ? '© 2025 Bizdak. Tous droits réservés.'
-      : '© 2025 Bizdak. All rights reserved.';
+      ? '© 2026 Bizdak. Tous droits réservés.'
+      : '© 2026 Bizdak. All rights reserved.';
     document.documentElement.lang = l;
   }
   // ── Backend API URL — Yash: replace with your real backend URL ──
-  const API_URL = 'https://api.yourdomain.com/api';
+  const API_URL = 'https://api.bizdak.app/api';
 
   // ── Populate city dropdown from backend ──────────────────────
   async function loadCities() {

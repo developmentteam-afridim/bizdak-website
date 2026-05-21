@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='38' fill='%2329B6D8'/><polygon points='35,70 65,70 50,95' fill='%2329B6D8'/><circle cx='50' cy='40' r='26' fill='%231a7a96'/><text x='50' y='52' text-anchor='middle' font-size='30' font-weight='700' fill='%23F5C518' font-family='Arial'>B</text></svg>"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0d1f35"/>
   <title>Bizdak — Don't Miss Another Deal!</title>
   <meta property="og:type"        content="website"/>
   <meta property="og:url"         content="https://bizdak.app/marketing"/>
@@ -99,6 +101,19 @@
     .bg-dark{background:var(--navy2)}
     .bg-navy{background:var(--navy)}
     @media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-phone{display:none}.hero-people{display:none}}
+
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .social-links { display: flex; gap: 12px; align-items: center; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 99px;
+      background: var(--navy); border: 0.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, background .2s;
+      flex-shrink: 0;
+    }
+    .social-btn:hover { border-color: var(--blue); background: var(--navy3); }
+    .social-btn svg { width: 16px; height: 16px; fill: var(--blue); transition: fill .2s; }
+    .social-btn:hover svg { fill: var(--yellow); }
   </style>
 </head>
 <body>
@@ -261,11 +276,11 @@
   <h2 class="dl-h2" data-en="Don't Miss Another Deal!" data-fr="Tu Rates Quoi Encore?">Don't Miss Another Deal!</h2>
   <p class="dl-sub" data-en="Download Bizdak Free — iOS & Android!" data-fr="Télécharge Bizdak — C'est Gratuit!">Download Bizdak Free — iOS & Android!</p>
   <div class="dl-btns">
-    <a href="#" class="dl-btn">
+    <a href="https://apps.apple.com/app/bizdak/id000000000" class="dl-btn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       <div><span class="dl-btn-sub" data-en="Download on the" data-fr="Télécharge Sur">Download on the</span>App Store</div>
     </a>
-    <a href="#" class="dl-btn">
+    <a href="https://play.google.com/store/apps/details?id=com.bizdak.app" class="dl-btn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.35.2.74.24 1.12.1l12.5-7.2L13.9 13.8l-10.7 9.96zM21.4 10.1L18.2 8.3l-3.5 3.1 3.5 3.3 3.2-1.8c.9-.52.9-1.82 0-2.82zM1.05.24C.8.5.63.9.63 1.4v21.2c0 .5.17.9.42 1.16l.08.07 11.9-11.9v-.28L1.13.17l-.08.07zM16.7 15.7l-3.5-3.3-12 11.9c.38.18.83.15 1.2-.07l14.3-8.53z"/></svg>
       <div><span class="dl-btn-sub" data-en="Get it on" data-fr="Dispo Sur">Get it on</span>Google Play</div>
     </a>
@@ -281,7 +296,7 @@
       <a href="index.html#cities" class="footer-link" data-en="Cities" data-fr="Villes">Cities</a>
       <a href="mailto:info@afridim.com" class="footer-link">Contact</a>
     </div>
-    <p class="footer-copy" id="footer-copy">© 2025 Bizdak. All rights reserved.</p>
+    <p class="footer-copy" id="footer-copy">© 2026 Bizdak. All rights reserved.</p>
   </div>
 </footer>
 
@@ -294,8 +309,8 @@
       btn.classList.toggle('active', btn.textContent === l.toUpperCase());
     });
     document.getElementById('footer-copy').textContent = l === 'fr'
-      ? '© 2025 Bizdak. Tous droits réservés.'
-      : '© 2025 Bizdak. All rights reserved.';
+      ? '© 2026 Bizdak. Tous droits réservés.'
+      : '© 2026 Bizdak. All rights reserved.';
     document.documentElement.lang = l;
   }
   const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';

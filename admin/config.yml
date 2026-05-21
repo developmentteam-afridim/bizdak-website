@@ -1,0 +1,114 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "landing"
+    label: "Landing Page"
+    files:
+      - name: "landing"
+        label: "Landing Page Content"
+        file: "_data/landing.json"
+        fields:
+          - { label: "Hero Headline EN", name: "hero_headline_en", widget: "string" }
+          - { label: "Hero Headline FR", name: "hero_headline_fr", widget: "string" }
+          - { label: "Hero Headline Highlight EN", name: "hero_highlight_en", widget: "string" }
+          - { label: "Hero Headline Highlight FR", name: "hero_highlight_fr", widget: "string" }
+          - { label: "Hero Subline EN", name: "hero_sub_en", widget: "string" }
+          - { label: "Hero Subline FR", name: "hero_sub_fr", widget: "string" }
+          - { label: "Feature 1 Title EN", name: "feat1_title_en", widget: "string" }
+          - { label: "Feature 1 Title FR", name: "feat1_title_fr", widget: "string" }
+          - { label: "Feature 1 Desc EN", name: "feat1_desc_en", widget: "string" }
+          - { label: "Feature 1 Desc FR", name: "feat1_desc_fr", widget: "string" }
+          - { label: "Feature 2 Title EN", name: "feat2_title_en", widget: "string" }
+          - { label: "Feature 2 Title FR", name: "feat2_title_fr", widget: "string" }
+          - { label: "Feature 2 Desc EN", name: "feat2_desc_en", widget: "string" }
+          - { label: "Feature 2 Desc FR", name: "feat2_desc_fr", widget: "string" }
+          - { label: "Feature 3 Title EN", name: "feat3_title_en", widget: "string" }
+          - { label: "Feature 3 Title FR", name: "feat3_title_fr", widget: "string" }
+          - { label: "Feature 3 Desc EN", name: "feat3_desc_en", widget: "string" }
+          - { label: "Feature 3 Desc FR", name: "feat3_desc_fr", widget: "string" }
+          - { label: "Step 1 Title EN", name: "step1_title_en", widget: "string" }
+          - { label: "Step 1 Title FR", name: "step1_title_fr", widget: "string" }
+          - { label: "Step 1 Desc EN", name: "step1_desc_en", widget: "string" }
+          - { label: "Step 1 Desc FR", name: "step1_desc_fr", widget: "string" }
+          - { label: "Step 2 Title EN", name: "step2_title_en", widget: "string" }
+          - { label: "Step 2 Title FR", name: "step2_title_fr", widget: "string" }
+          - { label: "Step 2 Desc EN", name: "step2_desc_en", widget: "string" }
+          - { label: "Step 2 Desc FR", name: "step2_desc_fr", widget: "string" }
+          - { label: "Step 3 Title EN", name: "step3_title_en", widget: "string" }
+          - { label: "Step 3 Title FR", name: "step3_title_fr", widget: "string" }
+          - { label: "Step 3 Desc EN", name: "step3_desc_en", widget: "string" }
+          - { label: "Step 3 Desc FR", name: "step3_desc_fr", widget: "string" }
+          - { label: "Testimonial 1 Quote EN", name: "t1_quote_en", widget: "text" }
+          - { label: "Testimonial 1 Quote FR", name: "t1_quote_fr", widget: "text" }
+          - { label: "Testimonial 1 Name", name: "t1_name", widget: "string" }
+          - { label: "Testimonial 1 City", name: "t1_city", widget: "string" }
+          - { label: "Testimonial 2 Quote EN", name: "t2_quote_en", widget: "text" }
+          - { label: "Testimonial 2 Quote FR", name: "t2_quote_fr", widget: "text" }
+          - { label: "Testimonial 2 Name", name: "t2_name", widget: "string" }
+          - { label: "Testimonial 2 City", name: "t2_city", widget: "string" }
+          - { label: "Testimonial 3 Quote EN", name: "t3_quote_en", widget: "text" }
+          - { label: "Testimonial 3 Quote FR", name: "t3_quote_fr", widget: "text" }
+          - { label: "Testimonial 3 Name", name: "t3_name", widget: "string" }
+          - { label: "Testimonial 3 City", name: "t3_city", widget: "string" }
+          - { label: "Download Bar Headline EN", name: "dl_headline_en", widget: "string" }
+          - { label: "Download Bar Headline FR", name: "dl_headline_fr", widget: "string" }
+          - { label: "Download Bar Subline EN", name: "dl_sub_en", widget: "string" }
+          - { label: "Download Bar Subline FR", name: "dl_sub_fr", widget: "string" }
+          - { label: "Footer Tagline EN", name: "footer_tagline_en", widget: "string" }
+          - { label: "Footer Tagline FR", name: "footer_tagline_fr", widget: "string" }
+          - { label: "Facebook URL", name: "social_facebook", widget: "string", required: false }
+          - { label: "Instagram URL", name: "social_instagram", widget: "string", required: false }
+          - { label: "TikTok URL", name: "social_tiktok", widget: "string", required: false }
+          - label: "Hero Carousel Slides"
+            name: carousel_slides
+            widget: list
+            required: false
+            summary: "{{fields.type}} — {{fields.src}}"
+            fields:
+              - label: "Type"
+                name: type
+                widget: select
+                options:
+                  - { label: "Image", value: "image" }
+                  - { label: "Video (MP4)", value: "video" }
+                default: "image"
+              - label: "File URL"
+                name: src
+                widget: string
+                hint: "Paste a direct URL to your image or video (Cloudinary, Imgur, etc.)"
+              - label: "Caption (optional)"
+                name: alt
+                widget: string
+                required: false
+                hint: "Short description for screen readers"
+
+  - name: "store"
+    label: "Store Onboarding Page"
+    files:
+      - name: "store"
+        label: "Store Onboarding Content"
+        file: "_data/store.json"
+        fields:
+          - { label: "Hero Headline EN", name: "hero_en", widget: "string" }
+          - { label: "Hero Headline FR", name: "hero_fr", widget: "string" }
+          - { label: "Hero Highlight EN", name: "highlight_en", widget: "string" }
+          - { label: "Hero Highlight FR", name: "highlight_fr", widget: "string" }
+          - { label: "Hero Subline EN", name: "sub_en", widget: "string" }
+          - { label: "Hero Subline FR", name: "sub_fr", widget: "string" }
+          - { label: "Step 1 Title EN", name: "s1_en", widget: "string" }
+          - { label: "Step 1 Title FR", name: "s1_fr", widget: "string" }
+          - { label: "Step 1 Desc EN", name: "s1d_en", widget: "string" }
+          - { label: "Step 1 Desc FR", name: "s1d_fr", widget: "string" }
+          - { label: "Step 2 Title EN", name: "s2_en", widget: "string" }
+          - { label: "Step 2 Title FR", name: "s2_fr", widget: "string" }
+          - { label: "Step 2 Desc EN", name: "s2d_en", widget: "string" }
+          - { label: "Step 2 Desc FR", name: "s2d_fr", widget: "string" }
+          - { label: "Step 3 Title EN", name: "s3_en", widget: "string" }
+          - { label: "Step 3 Title FR", name: "s3_fr", widget: "string" }
+          - { label: "Step 3 Desc EN", name: "s3d_en", widget: "string" }
+          - { label: "Step 3 Desc FR", name: "s3d_fr", widget: "string" }

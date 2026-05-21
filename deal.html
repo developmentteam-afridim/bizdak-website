@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="theme-color" content="#0d1f35"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='38' fill='%2329B6D8'/><polygon points='35,70 65,70 50,95' fill='%2329B6D8'/><circle cx='50' cy='40' r='26' fill='%231a7a96'/><text x='50' y='52' text-anchor='middle' font-size='30' font-weight='700' fill='%23F5C518' font-family='Arial'>B</text></svg>"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ── Dynamic Open Graph tags — filled by script on load ── -->
+  <!-- These are the tags WhatsApp, Twitter, Facebook read for link previews -->
+  <meta property="og:site_name"   content="Bizdak"/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:title"       id="og-title"       content="Deal on Bizdak"/>
+  <meta property="og:description" id="og-description" content="Find great deals near you on Bizdak"/>
+  <meta property="og:image"       id="og-image"       content="https://bizdak.app/assets/og-default.png"/>
+  <meta property="og:url"         id="og-url"         content=""/>
+  <meta name="twitter:card"       content="summary_large_image"/>
+  <meta name="twitter:title"      id="tw-title"       content="Deal on Bizdak"/>
+  <meta name="twitter:description" id="tw-description" content="Find great deals near you on Bizdak"/>
+  <meta name="twitter:image"      id="tw-image"       content="https://bizdak.app/assets/og-default.png"/>
+
+  <title>Deal on Bizdak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --navy:   #0d1f35;
+      --navy2:  #060e1a;
+      --blue:   #29B6D8;
+      --yellow: #F5C518;
+      --white:  #ffffff;
+      --muted:  #4a7a9a;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --navy:   #f0f2f5;
+        --navy2:  #e6eaf0;
+        --blue:   #1a8fb5;
+        --yellow: #c8960a;
+        --white:  #0d1a2e;
+        --muted:  #4a7a9a;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--navy2);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    /* Logo */
+    .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+    .logo-text { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--white); }
+    .logo-text span { color: var(--yellow); }
+
+    /* Deal card */
+    .deal-card {
+      background: var(--navy);
+      border: 0.5px solid #1a3a52;
+      border-radius: 20px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 420px;
+      margin-bottom: 28px;
+    }
+    .deal-img {
+      width: 100%;
+      height: 220px;
+      background: #1a3a2a;
+      object-fit: cover;
+      display: block;
+    }
+    .deal-img-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, #1a3a2a 0%, #0d2a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+    }
+    .deal-body { padding: 20px; }
+    .deal-store {
+      font-size: 12px;
+      color: var(--blue);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .deal-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .deal-discount {
+      display: inline-block;
+      background: var(--yellow);
+      color: #0d1a2e;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+    .deal-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .deal-expired {
+      display: inline-block;
+      background: #3a0a0a;
+      color: #ff6b6b;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-top: 8px;
+    }
+
+    /* CTA */
+    .cta-label {
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .dl-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 420px; }
+    .dl-btn {
+      flex: 1;
+      min-width: 160px;
+      background: var(--yellow);
+      color: #0d1a2e;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .dl-btn:hover { opacity: 0.9; }
+    .dl-btn.android {
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    /* Loading state */
+    .loading { text-align: center; color: var(--muted); font-size: 15px; padding: 40px 0; }
+    .error-msg { text-align: center; color: var(--muted); font-size: 15px; padding: 20px; max-width: 360px; }
+
+    /* Open in app banner */
+    .open-banner {
+      background: var(--blue);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 420px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .open-banner:hover { opacity: 0.9; }
+    .hidden { display: none; }
+    @media(max-width:768px){
+      .hero-inner{grid-template-columns:1fr;}
+      .dl-btns{flex-direction:column;align-items:center;}
+      .dl-btn{width:220px;justify-content:center;}
+      section{padding:48px 4%;}
+    }
+    @media(max-width:420px){
+      .nav-cta{padding:8px 14px;font-size:13px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <svg width="28" height="34" viewBox="0 0 28 34" fill="none">
+      <circle cx="14" cy="12" r="12" fill="#29B6D8"/>
+      <path d="M14 34C14 34 2 22 2 12A12 12 0 0126 12C26 22 14 34 14 34Z" fill="#29B6D8"/>
+      <circle cx="14" cy="12" r="8" fill="#1a9ab8"/>
+      <text x="14" y="16.5" text-anchor="middle" font-size="10" font-weight="700" fill="#F5C518" font-family="Arial">B</text>
+    </svg>
+    <span class="logo-text"><span>B</span>izdak</span>
+  </div>
+
+  <div id="loading" class="loading">Loading deal...</div>
+
+  <div id="open-banner" class="open-banner hidden" onclick="openInApp()">
+    Open in Bizdak app ↗
+  </div>
+
+  <div id="deal-card" class="deal-card hidden">
+    <div id="deal-img-wrap"></div>
+    <div class="deal-body">
+      <div id="deal-store" class="deal-store"></div>
+      <div id="deal-title" class="deal-title"></div>
+      <div id="deal-discount" class="deal-discount hidden"></div>
+      <div id="deal-desc"  class="deal-desc"></div>
+      <div id="deal-expired" class="deal-expired hidden">This deal has expired</div>
+    </div>
+  </div>
+
+  <p id="cta-label" class="cta-label hidden">
+    Get Bizdak to find deals like this near you
+  </p>
+
+  <div class="dl-btns hidden" id="dl-btns">
+    <a href="https://apps.apple.com/app/bizdak/id000000000" class="dl-btn" id="ios-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      App Store
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.bizdak.app" class="dl-btn android" id="android-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.74.24 1.12.1l12.5-7.2L13.9 13.8l-10.7 9.96zM21.4 10.1L18.2 8.3l-3.5 3.1 3.5 3.3 3.2-1.8c.9-.52.9-1.82 0-2.82zM1.05.24C.8.5.63.9.63 1.4v21.2c0 .5.17.9.42 1.16l.08.07 11.9-11.9v-.28L1.13.17l-.08.07zM16.7 15.7l-3.5-3.3-12 11.9c.38.18.83.15 1.2-.07l14.3-8.53z"/></svg>
+      Google Play
+    </a>
+  </div>
+
+  <script>
+    // ── Config — Yash: set this to your real backend API URL ──
+    const API_URL = 'https://api.bizdak.app/api';
+
+    // Extract deal ID from URL path — /deal/abc-123
+    const dealId = window.location.pathname.split('/deal/')[1]?.split('?')[0]?.trim();
+
+    // Deep link URL for the app
+    const appUrl  = `bizdak://deal/${dealId}`;
+    const webUrl  = window.location.href;
+    const lang    = navigator.language.startsWith('fr') ? 'fr' : 'en';
+
+    function show(id)  { document.getElementById(id)?.classList.remove('hidden'); }
+    function hide(id)  { document.getElementById(id)?.classList.add('hidden'); }
+    function setText(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
+    function setAttr(id, attr, val) { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); }
+
+    function openInApp() {
+      window.location.href = appUrl;
+    }
+
+    function updateMetaTags(title, description, imageUrl) {
+      const setMeta = (id, val) => { const el = document.getElementById(id); if (el) el.setAttribute('content', val); };
+      setMeta('og-title',       title);
+      setMeta('og-description', description);
+      setMeta('og-url',         webUrl);
+      setMeta('tw-title',       title);
+      setMeta('tw-description', description);
+      if (imageUrl) { setMeta('og-image', imageUrl); setMeta('tw-image', imageUrl); }
+      document.title = title;
+    }
+
+    function showDeal(deal) {
+      hide('loading');
+
+      // Open in app banner — always shown so existing users can tap through
+      show('open-banner');
+
+      // Deal image
+      const imgWrap = document.getElementById('deal-img-wrap');
+      if (deal.imageUrl) {
+        const img = document.createElement('img');
+        img.src = deal.imageUrl;
+        img.className = 'deal-img';
+        img.alt = deal.title || 'Deal image';
+        imgWrap.appendChild(img);
+      } else {
+        imgWrap.innerHTML = '<div class="deal-img-placeholder">🏷️</div>';
+      }
+
+      // Deal details
+      const storeName = deal.store?.name || '';
+      const title     = (lang === 'fr' && deal.titleFr) ? deal.titleFr : (deal.title || 'Deal');
+      const desc      = (lang === 'fr' && deal.descriptionFr) ? deal.descriptionFr : (deal.description || '');
+
+      setText('deal-store',   storeName);
+      setText('deal-title',   title);
+      setText('deal-desc',    desc);
+
+      if (deal.discountPercent > 0) {
+        setText('deal-discount', `-${deal.discountPercent}% off`);
+        show('deal-discount');
+      }
+
+      // Expired check
+      const isExpired = deal.endDate && new Date(deal.endDate) < new Date();
+      if (isExpired) {
+        show('deal-expired');
+        setText('deal-expired', lang === 'fr' ? 'Cette offre a expiré' : 'This deal has expired');
+      }
+
+      show('deal-card');
+      show('cta-label');
+      show('dl-btns');
+
+      // Update Open Graph meta tags for social previews
+      const ogDesc = storeName
+        ? `${storeName} — ${desc || title}`
+        : (desc || title);
+      updateMetaTags(title, ogDesc, deal.imageUrl || null);
+
+      // Update CTA label language
+      setText('cta-label', lang === 'fr'
+        ? 'Télécharge Bizdak pour trouver des bons plans près de toi'
+        : 'Get Bizdak to find deals like this near you'
+      );
+    }
+
+    function showError() {
+      hide('loading');
+      const div = document.createElement('div');
+      div.className = 'error-msg';
+      div.textContent = lang === 'fr'
+        ? 'Cette offre n\'est plus disponible. Télécharge Bizdak pour découvrir d\'autres bons plans près de toi.'
+        : 'This deal is no longer available. Download Bizdak to discover deals near you.';
+      document.body.insertBefore(div, document.getElementById('cta-label'));
+      show('cta-label');
+      show('dl-btns');
+    }
+
+    async function loadDeal() {
+      if (!dealId) { showError(); return; }
+
+      try {
+        const res  = await fetch(`${API_URL}/deals/${dealId}`);
+        if (!res.ok) { showError(); return; }
+        const deal = await res.json();
+        showDeal(deal);
+      } catch {
+        showError();
+      }
+    }
+
+    // Hide buttons not relevant to platform
+    const ua = navigator.userAgent.toLowerCase();
+    const isIOS     = /iphone|ipad|ipod/.test(ua);
+    const isAndroid = /android/.test(ua);
+    if (isIOS)     document.getElementById('android-btn')?.style.setProperty('display', 'none');
+    if (isAndroid) document.getElementById('ios-btn')?.style.setProperty('display', 'none');
+
+    loadDeal();
+  </script>
+</body>
+</html>
